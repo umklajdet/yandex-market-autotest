@@ -20,6 +20,6 @@ public class YandexMarketTvTest extends BaseTestClass {
                 .chooseBrand("Samsung")
                 .chooseBrand("LG")
                 .applyFilter()
-                .checkShownElementsNumber();
+                .checkFilteredElementsNumber();
     }
 }

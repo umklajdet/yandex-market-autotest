@@ -1,7 +1,9 @@
 package ru.ibs.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.ibs.managers.DriverManager;
@@ -16,11 +18,11 @@ public class BasePage {
         PageFactory.initElements(driverManager.getDriver(), this);
     }
 
-//    protected WebElement waitUntilElementToBeClickable(WebElement element) {
-//        return wait.until(ExpectedConditions.elementToBeClickable(element));
-//    }
-//
-//    protected WebElement waitUtilElementToBeVisible(WebElement element) {
-//        return wait.until(ExpectedConditions.visibilityOf(element));
-//    }
+    protected WebElement waitUntilElementToBeClickable(WebElement element) {
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    protected WebElement waitUtilElementToBeVisible(WebElement element) {
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
 }

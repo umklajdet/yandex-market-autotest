@@ -11,10 +11,13 @@ public class FiltersTvPage extends BasePage {
     @FindBy(xpath = "//div[@class='_307sS _2k6P8']//div[@data-prefix='от']/input")
     WebElement minPriceField;
 
-    @FindBy(xpath = "//h4[text()='Производитель']/../..//input[@type='checkbox']")
+    @FindBy(xpath = "//div[@class='_307sS _2k6P8']//input[@type='checkbox' and @class='_24XUl']")
     List<WebElement> brandList;
 
-    @FindBy(xpath = "//a[contains(text(), 'Показать')]")
+    @FindBy(xpath = "//div[@data-filter-id='7893318']")
+    WebElement brandListDiv;
+
+    @FindBy(xpath = "//a[contains(text(), 'Показать') and contains(text(), 'предложений')]")
     WebElement applyFilterButton;
 
     @FindBy(xpath = "//div[@data-tid='5c8f99e1']/article")
@@ -31,6 +34,7 @@ public class FiltersTvPage extends BasePage {
     public FiltersTvPage chooseBrand(String brandTitle) {
         for (WebElement brand : brandList) {
             if (brand.getAttribute("value").equals(brandTitle)) {
+                waitUntilElementToBeClickable(brand);
                 brand.click();
                 return this;
             }
@@ -47,8 +51,11 @@ public class FiltersTvPage extends BasePage {
     }
 
     @Step("Проверяем кооличество элементов на странице")
-    public FiltersTvPage checkShownElementsNumber() {
-
+    public FiltersTvPage checkFilteredElementsNumber() {
+        for (WebElement filteredTv : filteredTvList) {
+            waitUtilElementToBeVisible(filteredTv);
+        }
+        System.out.println("Количество офильтрованных ТВ - " + filteredTvList.size());
         return this;
     }
 }
