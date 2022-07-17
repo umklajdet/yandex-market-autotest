@@ -1,6 +1,7 @@
 package ru.ibs.pages;
 
 import io.qameta.allure.Step;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,8 +21,8 @@ public class FilterResultPage extends BasePage {
     @FindBy(xpath = "//div[@class='_3Fff3']/h3/a")
     List<WebElement> elementsTitleList;
 
-//    @FindBy(xpath = "//div[@data-index='1']//div[@class='_3Fff3']/h3/a")
-//    WebElement firstFoundElement;
+    @FindBy(xpath = "//div[@class='_3mStq _2y-pc']")
+    WebElement messageViewedElementsNumber;
 
     String firstElementTitle;
 
@@ -32,7 +33,12 @@ public class FilterResultPage extends BasePage {
 //            waitUntilElementToBeVisible(listItem);
 //            scrollToElement(listItem);
 //        }
-        System.out.println("Количество офильтрованных товаров - " + filteredList.size());
+        for (int i = 0; i<2; i++) {
+            Thread.sleep(1000);
+            scrollPage();
+        }
+        Assert.assertTrue("Количество найденных товаров не сотвествует количеству отображенных",
+                messageViewedElementsNumber.getText().contains("Вы посмотрели " + filteredList.size()));
         return this;
     }
 
