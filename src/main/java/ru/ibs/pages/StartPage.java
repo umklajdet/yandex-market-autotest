@@ -25,9 +25,4 @@ public class StartPage extends BasePage {
         return pageManager.getYaMarketPage();
     }
 
-    // переключает на другую вкладку
-    public void switchTab() {
-        ArrayList<String> tabs2 = new ArrayList<String>(driverManager.getDriver().getWindowHandles());
-        driverManager.getDriver().switchTo().window(tabs2.get(1));
-    }
 }

@@ -14,16 +14,16 @@ public class AudioTechnicsPage extends BasePage {
     private List<WebElement> categoryList;
 
     @Step("Выбираем категорию {categoryTitle}")
-    public HeadsetPage chooseAudioTechnicsElement(String categoryTitle) {
+    public BaseElectronicsTypePage chooseAudioTechnicsElement(String categoryTitle) {
         for (WebElement category : categoryList) {
             WebElement listItemChild = category.findElement(By.xpath("//div[@class='_3Nlow _3Ct1C']"));
             if (listItemChild.getText().contains(categoryTitle)) {
                 waitUntilElementToBeClickable(category);
                 category.click();
-                return pageManager.getHeadsetPage();
+                return pageManager.getBaseElectronicsTypePage();
             }
         }
         Assert.fail("Не найдена категория " + categoryTitle);
-        return pageManager.getHeadsetPage();
+        return pageManager.getBaseElectronicsTypePage();
     }
 }

@@ -12,7 +12,6 @@ public class YandexMarketTvTest extends BaseTestClass {
 
         pageManager.getStartPage()
                 .chooseElementFromServicesMenu("Маркет")
-//                .closeBanner()
                 .chooseElementFromMarketMenu("Электроника")
                 .chooseTvMenuElement()
                 .getAllFilters()
@@ -20,6 +19,10 @@ public class YandexMarketTvTest extends BaseTestClass {
                 .chooseBrand("Samsung")
                 .chooseBrand("LG")
                 .applyFilter()
-                .checkFilteredElementsNumber();
+                .countFilteredElementsNumber()
+                .getFirstElement()
+                .searchFirstElement()
+                .checkFirstElement()
+                .checkFoundTitle();
     }
 }

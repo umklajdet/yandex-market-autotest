@@ -11,9 +11,9 @@ public class ElectronicsPage extends BasePage {
     @FindBy(xpath = "//a[text()='Наушники  и аудиотехника']")
     private WebElement audioMenuElement;
 
-    public TvPage chooseTvMenuElement() {
+    public BaseElectronicsTypePage chooseTvMenuElement() {
         tvMenuElement.click();
-        return pageManager.getTvPage();
+        return pageManager.getBaseElectronicsTypePage();
     }
 
     public AudioTechnicsPage chooseHeadsetMenuElement() {

@@ -8,12 +8,11 @@ public class PageManager {
     private StartPage startPage;
     private YandexMarketPage yandexMarketPage;
     private ElectronicsPage electronicsPage;
-    private TvPage tvPage;
-    private FiltersTvPage filtersTvPage;
+    private BaseElectronicsTypePage baseElectronicsTypePage;
+    private AllFiltersPage allFiltersPage;
     private AudioTechnicsPage audioTechnicsPage;
-    private HeadsetPage headsetPage;
-    private FiltersHeadsetPage filtersHeadsetPage;
     private FilterResultPage filterResultPage;
+    private SearchResultPage searchResultPage;
 
 
     private PageManager() {
@@ -48,18 +47,18 @@ public class PageManager {
         return electronicsPage;
     }
 
-    public TvPage getTvPage() {
-        if (tvPage == null) {
-            tvPage = new TvPage();
+    public BaseElectronicsTypePage getBaseElectronicsTypePage() {
+        if (baseElectronicsTypePage == null) {
+            baseElectronicsTypePage = new BaseElectronicsTypePage();
         }
-        return tvPage;
+        return baseElectronicsTypePage;
     }
 
-    public FiltersTvPage getFiltersTvPage() {
-        if (filtersTvPage == null) {
-            filtersTvPage = new FiltersTvPage();
+    public AllFiltersPage getAllFiltersPage() {
+        if (allFiltersPage == null) {
+            allFiltersPage = new AllFiltersPage();
         }
-        return filtersTvPage;
+        return allFiltersPage;
     }
 
     public AudioTechnicsPage getAudioTechnicsPage() {
@@ -69,24 +68,17 @@ public class PageManager {
         return audioTechnicsPage;
     }
 
-    public HeadsetPage getHeadsetPage() {
-        if (headsetPage == null) {
-            headsetPage = new HeadsetPage();
-        }
-        return headsetPage;
-    }
-
-    public FiltersHeadsetPage getFiltersHeadsetPage() {
-        if (filtersHeadsetPage == null) {
-            filtersHeadsetPage = new FiltersHeadsetPage();
-        }
-        return filtersHeadsetPage;
-    }
-
     public FilterResultPage getFilterResultPage() {
         if (filterResultPage == null) {
             filterResultPage = new FilterResultPage();
         }
         return filterResultPage;
+    }
+
+    public SearchResultPage getSearchResultPage() {
+        if (searchResultPage == null) {
+            searchResultPage = new SearchResultPage();
+        }
+        return searchResultPage;
     }
 }

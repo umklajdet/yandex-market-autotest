@@ -8,11 +8,20 @@ public class YandexMarketHeadsetTest extends BaseTestClass {
 
     @Test
     @DisplayName("Поиск наушников с использованием фильтров в Яндекс.Маркете")
-    public void yandexMarketHeadsetTest() {
+    public void yandexMarketHeadsetTest() throws InterruptedException {
         pageManager.getStartPage()
                 .chooseElementFromServicesMenu("Маркет")
                 .chooseElementFromMarketMenu("Электроника")
                 .chooseHeadsetMenuElement()
-                .chooseAudioTechnicsElement("Наушники и Bluetooth-гарнитуры");
+                .chooseAudioTechnicsElement("Наушники и Bluetooth-гарнитуры")
+                .getAllFilters()
+                .inputMinPrice("5000")
+                .chooseBrand("JBL")
+                .applyFilter()
+                //.countFilteredElementsNumber()
+                .getFirstElement()
+                .searchFirstElement()
+                .checkFirstElement()
+                .checkFoundTitle();
     }
 }
