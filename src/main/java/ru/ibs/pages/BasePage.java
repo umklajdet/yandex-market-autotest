@@ -31,12 +31,18 @@ public class BasePage {
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    // прокрутка до элемента
     protected WebElement scrollToElement(WebElement element) {
         jse.executeScript("arguments[0].scrollIntoView(true);", element);
         return element;
     }
 
-    // переключает на другую вкладку
+    //пркрутка страницы
+    protected void scrollPage() {
+        jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+    // переключает на последнюю вкладку
     public void switchTab() {
         ArrayList<String> tabs = new ArrayList<String>(driverManager.getDriver().getWindowHandles());
         driverManager.getDriver().switchTo().window(tabs.get(tabs.size()-1));

@@ -18,7 +18,7 @@ public class YandexMarketHeadsetTest extends BaseTestClass {
                 .inputMinPrice("5000")
                 .chooseBrand("JBL")
                 .applyFilter()
-                //.countFilteredElementsNumber()
+                .countFilteredElementsNumber()
                 .getFirstElement()
                 .searchFirstElement()
                 .checkFirstElement()

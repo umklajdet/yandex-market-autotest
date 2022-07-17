@@ -1,6 +1,6 @@
 package ru.ibs.basetest;
 
-import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import ru.ibs.managers.DriverManager;
 import ru.ibs.managers.PageManager;
@@ -17,8 +17,8 @@ public class BaseTestClass {
         driverManager.getDriver().get(propManager.getProperty("base.url"));
     }
 
-    @After
-    public void after() {
+    @AfterClass
+    public static void afterAll() {
         driverManager.quitDriver();
     }
 
