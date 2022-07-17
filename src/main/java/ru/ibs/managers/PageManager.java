@@ -13,6 +13,7 @@ public class PageManager {
     private AudioTechnicsPage audioTechnicsPage;
     private HeadsetPage headsetPage;
     private FiltersHeadsetPage filtersHeadsetPage;
+    private FilterResultPage filterResultPage;
 
 
     private PageManager() {
@@ -80,5 +81,12 @@ public class PageManager {
             filtersHeadsetPage = new FiltersHeadsetPage();
         }
         return filtersHeadsetPage;
+    }
+
+    public FilterResultPage getFilterResultPage() {
+        if (filterResultPage == null) {
+            filterResultPage = new FilterResultPage();
+        }
+        return filterResultPage;
     }
 }
